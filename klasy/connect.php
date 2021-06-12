@@ -1,7 +1,7 @@
 <?php
 
-    $dbserwer="127.0.0.1";
-    $dblogin="";
+    $dbserwer="localhost:3306";
+    $dblogin="root";
     $dbpassword="";
     $db="test";
 

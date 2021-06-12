@@ -1,0 +1,44 @@
+body
+{
+    background-color: #663300;
+    color: white;
+}
+
+a, a:hover, 
+{
+    color: #A75707;
+}
+
+.btn
+{
+    background-color: #663300;
+    color: white;
+}
+
+
+.jumbotron
+{
+    background-color: #A75707;
+}
+
+.navbar
+{
+    background-color: #A75707;
+}
+
+.tlo
+{
+    background-color: #A75707;
+    padding: 4px;
+    width: 30%;
+}
+
+.separator
+{
+    padding: 2px;
+}
+
+.error
+{
+    color: red;
+}

@@ -1,8 +1,8 @@
 <?php
 
-    $dbserwer="10.10.10.80";
-    $dblogin="user_test";
-    $dbpassword="user_test";
-    $db="zmumar";
+    $dbserwer="127.0.0.1";
+    $dblogin="";
+    $dbpassword="";
+    $db="test";
 
 ?>

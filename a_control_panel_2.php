@@ -35,7 +35,7 @@ require "klasy/administrator.php";
             echo "<h3>Tabela 'ksiazki'</h3> ";
             echo "<table class='table table-bordered'>
             <tr>
-            <th>id</th><th>tytul</th><th>wypozyczona</th><th>autor</th><th>termin</th>
+            <th>id</th><th>tytul</th><th>rezerwacja</th><th>autor</th><th>termin</th>
             <th>rok wydania</th><th>wydawnictwo</th><th>streszczenie</th><th>ISBN</th><th>gatunek</th><th>Zaznacz</th>
             </tr>";
             for($i=0; $i<count($tabela_ksiazek[0]);$i++)

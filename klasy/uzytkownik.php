@@ -21,7 +21,7 @@
             $this->uzytkownik = $uzytkownik;
             $this->polacz();
             //pobieram tytul
-            $rezultat =  $this->polaczenie->query("SELECT tytul FROM biblioteka WHERE wypozyczona='$uzytkownik'");
+            $rezultat =  $this->polaczenie->query("SELECT tytul FROM biblioteka WHERE rezerwacja='$uzytkownik'");
             if($rezultat->num_rows == 0)
             {
                 $tab_tytul[0] = "Brak";
@@ -35,7 +35,7 @@
                     $i_a++;
                 }
                 //pobieram termin
-                $rezultat = $this->polaczenie->query("SELECT termin FROM biblioteka WHERE wypozyczona='$uzytkownik'");
+                $rezultat = $this->polaczenie->query("SELECT termin FROM biblioteka WHERE rezerwacja='$uzytkownik'");
                 $i_b=0;
                 while($row = $rezultat->fetch_assoc()) {
                     $tab_termin[$i_b] = $row['termin'];

@@ -81,7 +81,7 @@ class Administrator
     public function przedluz_termin($ksiazka)
     {
         $this->polacz();
-        $rezultat = $this->polaczenie->query("SELECT * FROM biblioteka WHERE id='$ksiazka' AND wypozyczona!='nie'");
+        $rezultat = $this->polaczenie->query("SELECT * FROM biblioteka WHERE id='$ksiazka' AND rezerwacja!='nie'");
         //sprawdzam czy rezultat jest pusty
         if($rezultat->num_rows > 0)
         {   
@@ -115,7 +115,7 @@ class Administrator
         $this->polacz();
         $tab_id = $this->przekonwertuj("id","biblioteka");
         $tab_tytul = $this->przekonwertuj("tytul","biblioteka");
-        $tab_wypozyczona = $this->przekonwertuj("wypozyczona","biblioteka");
+        $tab_wypozyczona = $this->przekonwertuj("rezerwacja","biblioteka");
         $tab_autor = $this->przekonwertuj("autor","biblioteka");
         $tab_termin = $this->przekonwertuj("termin", "biblioteka");
         $tab_rok_wydania = $this->przekonwertuj("rok_wydania", "biblioteka");

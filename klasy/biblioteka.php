@@ -20,7 +20,7 @@ class Biblioteka
     {
         $this->polacz();
         //pobieram liste dostepnych ksiazek
-            $rezultat = $this->polaczenie->query("SELECT tytul FROM biblioteka WHERE wypozyczona='nie'");
+            $rezultat = $this->polaczenie->query("SELECT tytul FROM biblioteka WHERE rezerwacja='nie'");
             if($rezultat->num_rows > 0)
             {
             $i_k = 0;
@@ -33,7 +33,7 @@ class Biblioteka
             
 
             //pobieram liste autorow dostepnych ksiazek
-            $rezultat = $this->polaczenie->query("SELECT autor FROM biblioteka WHERE wypozyczona='nie'");
+            $rezultat = $this->polaczenie->query("SELECT autor FROM biblioteka WHERE rezerwacja='nie'");
             if($rezultat->num_rows >0)
             {
             $i_a = 0;
@@ -50,8 +50,8 @@ class Biblioteka
     {
         $this->polacz();
         //wstawiam nazwe uzytkownika i date
-        $this->polaczenie->query("UPDATE biblioteka SET termin=curdate() + INTERVAL 14 DAY WHERE tytul='$ksiazka' AND wypozyczona='nie'" );        
-        $this->polaczenie->query("UPDATE biblioteka SET wypozyczona='$kto' WHERE tytul='$ksiazka' AND wypozyczona='nie'");
+        $this->polaczenie->query("UPDATE biblioteka SET termin=curdate() + INTERVAL 14 DAY WHERE tytul='$ksiazka' AND rezerwacja='nie'" );        
+        $this->polaczenie->query("UPDATE biblioteka SET rezerwacja='$kto' WHERE tytul='$ksiazka' AND rezerwacja='nie'");
         //wstawiam wpis do histori
         $this->polaczenie->query("INSERT INTO historia (akcja, data, login, tytul) VALUES ('wypożyczono', curdate(),'$kto','$ksiazka')");
         $this->polaczenie->close();
@@ -62,8 +62,8 @@ class Biblioteka
     {
         $this->polacz();
         //usuwam termin
-        $this->polaczenie->query("UPDATE biblioteka SET termin=NULL WHERE tytul='$ksiazka' AND wypozyczona='$kto'");
-        $this->polaczenie->query("UPDATE biblioteka SET wypozyczona='nie' WHERE tytul='$ksiazka' AND wypozyczona='$kto'");
+        $this->polaczenie->query("UPDATE biblioteka SET termin=NULL WHERE tytul='$ksiazka' AND rezerwacja='$kto'");
+        $this->polaczenie->query("UPDATE biblioteka SET rezerwacja='nie' WHERE tytul='$ksiazka' AND rezerwacja='$kto'");
         //wstawiam wpis do histori
         $this->polaczenie->query("INSERT INTO historia (akcja, data, login, tytul) VALUES ('oddano', curdate(),'$kto','$ksiazka')");
         $this->polaczenie->close();

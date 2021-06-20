@@ -23,7 +23,7 @@ CREATE TABLE historia (
 CREATE TABLE biblioteka (
                           id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                           termin datetime,
-                          wypozyczona VARCHAR(30) NOT NULL,
+                          rezerwacja VARCHAR(30) NOT NULL,
                           tytul VARCHAR(30) NOT NULL,
                           autor VARCHAR(30) NOT NULL,
                           wydawnictwo VARCHAR(30) NOT NULL,
@@ -33,5 +33,5 @@ CREATE TABLE biblioteka (
                           gatunek VARCHAR(30) NOT NULL
 );
 
-INSERT INTO biblioteka (wypozyczona, tytul, autor,wydawnictwo,rok_wydania,ISBN,gatunek)
+INSERT INTO biblioteka (rezerwacja, tytul, autor,wydawnictwo,rok_wydania,ISBN,gatunek)
 VALUES ('Nie','Quo vadis','Henryk Sienkiewicz','GREG ','2003-01-01','68758677','powieść historyczna');

@@ -35,11 +35,13 @@ require "klasy/administrator.php";
             echo "<h3>Tabela 'ksiazki'</h3> ";
             echo "<table class='table table-bordered'>
             <tr>
-            <th>id</th><th>tytul</th><th>wypozyczona</th><th>autor</th><th>termin</th><th>Zaznacz</th>
+            <th>id</th><th>tytul</th><th>wypozyczona</th><th>autor</th><th>termin</th>
+            <th>rok wydania</th><th>wydawnictwo</th><th>streszczenie</th><th>ISBN</th><th>gatunek</th><th>Zaznacz</th>
             </tr>";
             for($i=0; $i<count($tabela_ksiazek[0]);$i++)
             {
                 echo "<tr><td>".$tabela_ksiazek[0][$i]."</td><td>".$tabela_ksiazek[1][$i]."</td><td>".$tabela_ksiazek[2][$i]."</td><td>".$tabela_ksiazek[3][$i]."</td><td>".$tabela_ksiazek[4][$i]."
+                <td>".$tabela_ksiazek[5][$i]."</td><td>".$tabela_ksiazek[6][$i]."</td><td>".$tabela_ksiazek[7][$i]."</td><td>".$tabela_ksiazek[8][$i]."</td><td>".$tabela_ksiazek[9][$i]."</td>
                 </td><td>
                 <div class='checkbox'>
                 <input type='checkbox' class='form' name='tab_post[]' value='".$tabela_ksiazek[0][$i]."'>

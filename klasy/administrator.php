@@ -118,8 +118,16 @@ class Administrator
         $tab_wypozyczona = $this->przekonwertuj("wypozyczona","biblioteka");
         $tab_autor = $this->przekonwertuj("autor","biblioteka");
         $tab_termin = $this->przekonwertuj("termin", "biblioteka");
+        $tab_rok_wydania = $this->przekonwertuj("rok_wydania", "biblioteka");
+        $tab_wydawnictwo = $this->przekonwertuj("wydawnictwo", "biblioteka");
+        $tab_streszczenie = $this->przekonwertuj("streszczenie", "biblioteka");
+        $tab_ISBN = $this->przekonwertuj("ISBN", "biblioteka");
+        $tab_gatunek = $this->przekonwertuj("gatunek", "biblioteka");
+
+
         $this->polaczenie->close();
-        $tab = Array($tab_id, $tab_tytul, $tab_wypozyczona, $tab_autor,$tab_termin);
+        $tab = Array($tab_id, $tab_tytul, $tab_wypozyczona, $tab_autor,
+        $tab_termin,$tab_rok_wydania,$tab_wydawnictwo, $tab_streszczenie,$tab_ISBN,$tab_gatunek);
         $this->tab_ksiazki = $tab;
         return $tab;
     }

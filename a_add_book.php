@@ -1,4 +1,11 @@
 <!DOCTYPE HTML>
+
+<?php
+session_start();
+require "klasy/system.php";
+czy_admin();
+
+?>
 <html>
 
 <head>

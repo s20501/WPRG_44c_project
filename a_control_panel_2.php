@@ -1,6 +1,8 @@
 <?php
 require "klasy/administrator.php";
+require "klasy/system.php";
 session_start();
+czy_admin();
 if (!isset($_SESSION['error_panel2'])) {
     $_SESSION['error_panel2'] = "";
 }

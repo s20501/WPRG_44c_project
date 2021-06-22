@@ -28,7 +28,7 @@ else if ($_POST["przycisk"] == "Przedłóż termin") {
     header('Location: ../a_control_panel_2.php');
 } else if ($_POST["przycisk"] == "Dodaj książke") {
 
-    header('Location: ../add_book.php');
+    header('Location: ../a_add_book.php');
 } else {
     echo "Cos poszlo nie tak";
 }

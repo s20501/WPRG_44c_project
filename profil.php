@@ -13,8 +13,8 @@
  <nav class="navbar">
   <form class="form-inline">
   <button onclick='window.location.href="profil.php" ' class="btn btn-outline-success" type="button">Profil</button>
-    <button onclick='window.location.href="polka.php" ' class="btn btn-sm align-middle btn-outline-secondary" type="button">Wypożycz</button>
-    <button onclick='window.location.href="polka2.php" ' class="btn btn-sm align-middle btn-outline-secondary" type="button">Oddaj</button>
+    <button onclick='window.location.href="polka.php" ' class="btn btn-sm align-middle btn-outline-secondary" type="button">Zarezerwuj</button>
+    <button onclick='window.location.href="polka2.php" ' class="btn btn-sm align-middle btn-outline-secondary" type="button">Usuń rezerwację</button>
   </form>
 </nav>
     <div class="container"> 
@@ -28,6 +28,8 @@
 
     $data_czas = new DateTime();
     $po_terminie=0;
+
+    if(isset($uzytkownik->termin)){
     for($i=0;$i<count($uzytkownik->termin);$i++)
     {
         $koniec = DateTime::createFromFormat('Y-m-d',$uzytkownik->termin[$i]);
@@ -36,9 +38,18 @@
             $po_terminie++;
         }
     }
+    }
+
+    $wyp_ksiazki= 0;
+
+    if(isset($uzytkownik->ksiazki)){
+        $wyp_ksiazki = count($uzytkownik->ksiazki);
+    }
+
+
         
     echo "<h3>Statystyki</h3><ul>";
-    echo "<li>Liczba wypożyczonych obecnie książek: ".count($uzytkownik->ksiazki)."</li>";
+    echo "<li>Liczba wypożyczonych obecnie książek: ".$wyp_ksiazki."</li>";
     echo "<li>Liczba książek po terminie do oddania: ".$po_terminie."</li>";
     echo "<li> Wypożyczyłeś w naszej bibliotece książke już ".$uzytkownik->ilosc." razy"; 
 

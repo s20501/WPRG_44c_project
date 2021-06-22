@@ -26,13 +26,13 @@ require 'klasy/biblioteka.php';
 <nav class="navbar">
   <form class="form-inline">
   <button onclick='window.location.href="profil.php" ' class="btn btn-sm align-middle btn-outline-secondary" type="button">Profil</button>
-  <button onclick='window.location.href="polka.php" ' class="btn btn-sm align-middle btn-outline-secondary" type="button">Wypożycz</button>
-    <button onclick='window.location.href="polka2.php" ' class="btn btn-outline-success" type="button">Oddaj</button>
+  <button onclick='window.location.href="polka.php" ' class="btn btn-sm align-middle btn-outline-secondary" type="button">Zarezerwuj</button>
+    <button onclick='window.location.href="polka2.php" ' class="btn btn-outline-success" type="button">Usuń rezerwację</button>
 
   </form>
 </nav>
      <div class="container">
-     <h3>Książki które wypożyczyłeś</h3>
+     <h3>Książki które zarazerwowałeś</h3>
      <form action="formularze/oddaj.php" method="post"> 
   <?php  
    $uzytkownik = new Uzytkownik($_SESSION['zalogowany']);
@@ -40,8 +40,11 @@ require 'klasy/biblioteka.php';
    $polka = new Biblioteka;
    $_SESSION['polka'] = $polka;
    echo '<table class="table table-bordered">
-   <tr><th>Tytul</th><th>Termin do oddania</th><th>Oddaj</th><tr/>';
+   <tr><th>Tytul</th><th>Termin do odbioru</th><th>Usuń rezerwację</th><tr/>';
    $data_czas = new DateTime();
+
+   if(isset($uzytkownik->ksiazki)){
+
    for($i=0; $i<count($uzytkownik->ksiazki);$i++)
    {
        $koniec = DateTime::createFromFormat('Y-m-d',$uzytkownik->termin[$i]);
@@ -65,11 +68,12 @@ require 'klasy/biblioteka.php';
        }
 
    }
+  }
    ?>
     </table>
     <!-- Sprawdzam czy ksiazki sa dostepne -->
     <div class="tlo">
-        <button class="btn btn-default" type="submit">Oddaj</button>
+        <button class="btn btn-default" type="submit">Usuń rezerwację</button>
     </div>
     </form>
     <div class="error"><?php echo $_SESSION['dostepna2'];?></div>

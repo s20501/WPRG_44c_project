@@ -25,8 +25,8 @@ require 'klasy/biblioteka.php';
 <nav class="navbar">
   <form class="form-inline">
   <button onclick='window.location.href="profil.php" ' class="btn btn-sm align-middle btn-outline-secondary" type="button">Profil</button>
-    <button onclick='window.location.href="polka.php" ' class="btn btn-outline-success" type="button">Wypożycz</button>
-    <button onclick='window.location.href="polka2.php" ' class="btn btn-sm align-middle btn-outline-secondary" type="button">Oddaj</button>
+    <button onclick='window.location.href="polka.php" ' class="btn btn-outline-success" type="button">Zarezerwuj</button>
+    <button onclick='window.location.href="polka2.php" ' class="btn btn-sm align-middle btn-outline-secondary" type="button">Usuń rezerwację</button>
   </form>
 </nav>
      <div class="container">
@@ -36,7 +36,7 @@ require 'klasy/biblioteka.php';
         <tr>
             <th>Tytul</th>
             <th>Autor</th>
-            <th>Wypożycz</th>
+            <th>Zarezerwuj</th>
         </tr>
   <?php  
     $polka = new Biblioteka;
@@ -55,7 +55,7 @@ require 'klasy/biblioteka.php';
     <!-- Sprawdzam czy ksiazki sa dostepne -->
     <div class="tlo">
         
-        <button class="btn btn-default" type="submit">Wypożycz</button>
+        <button class="btn btn-default" type="submit">Zarezerwuj</button>
     </div>
     </form>
     <div class="error"><?php echo $_SESSION['dostepna']; ?></div>

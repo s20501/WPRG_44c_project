@@ -46,7 +46,7 @@ if (!isset($_SESSION['error_panel'])) {
             echo "<h3>Tabela 'user'</h3> ";
             echo "<table class='table table-bordered'>
             <tr>
-            <th>id</th><th>login</th><th>haslo</th><th>ilosc_wypozyczen</th><th>admin</th><th>Zaznacz</th>
+            <th>id</th><th>login</th><th>haslo</th><th>ilosc_wypozyczen</th><th>admin</th><th>Zaznacz</th><th></th>
             </tr>";
             for ($i = 0; $i < count($tabela_user[0]); $i++) {
                 echo "<tr><td>" . $tabela_user[0][$i] . "</td><td>" . $tabela_user[1][$i] . "</td><td>" . $tabela_user[2][$i] . "</td><td>" . $tabela_user[3][$i] . "</td><td>" . $tabela_user[4][$i] . "
@@ -54,7 +54,7 @@ if (!isset($_SESSION['error_panel'])) {
                 <div class='checkbox'>
                 <input type='checkbox' class='form' name='tab_post[]' value='" . $tabela_user[1][$i] . "'>
               </div>
-                </td></tr>";
+                </td><td class='text-center'><button class='btn btn-secondary' type='submit' name='id' value='" . $tabela_user[0][$i] . "'>Edytuj</button></td></tr>";
             }
 
             echo "</table>";

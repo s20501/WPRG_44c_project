@@ -128,7 +128,7 @@ class Administrator
         $this->tab_user = $tab;
         return $tab;
     }
-
+    // Dodaje książkę
     public function dodaj_book()
     {
         $this->polacz();
@@ -140,6 +140,31 @@ class Administrator
             return true;
         } else {
             $this->polaczenie->close();
+            return false;
+        }
+    }
+    // Get user
+    public function get_user($id)
+    {
+        $this->polacz();
+        $result = $this->polaczenie->query("SELECT * FROM user WHERE id=$id");
+        $row = $result->fetch_row();
+        $this->polaczenie->close();
+        return $row ?? false;
+    }
+
+    public function add_user()
+    {
+        $login = $_POST['login'];
+        $haslo = $_POST['haslo'];
+        $id = $_SESSION['id'];
+
+        $this->polacz();
+
+        if ($this->polaczenie->query("UPDATE  user  SET  login='" . $login . "', haslo='" . $haslo . "'
+    WHERE  id=" . $id)) {
+            return true;
+        } else {
             return false;
         }
     }

@@ -33,7 +33,7 @@ $book =  $admin->get_book($_SESSION['id'])
                 </br>
                 Wydawnictwo</br> <input id="wydawnictwo" type="text" name="wydawnictwo" <?php echo "value='" . $book[5] . "'" ?> />
                 </br>
-                Rok Wydania </br> <input id="rok_wydania" type="date" name="rok_wydania" <?php echo "value='" . $book[6] . "'" ?> />
+                Rok Wydania </br> <input id="rok_wydania" type="date" name="rok_wydania" <?php echo "value='" . date("Y-m-d", strtotime($book[6])) . "'" ?> />
                 </br>
 
                 Streszczenie </br> <textarea id="streszczenie" name="streszczenie"> <?php echo  $book[7] ?> </textarea>

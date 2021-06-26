@@ -34,6 +34,8 @@ if (!isset($_SESSION['error_panel2'])) {
             //wypisuje zawartosc bazy danych
             $tabela_ksiazek = $admin->pokaz_baze_ksiazek();
             $_SESSION['admin'] = $admin;
+
+
             echo "<h3>Tabela Książki</h3> ";
             echo "<table class='table table-bordered'>
             <tr>
@@ -41,8 +43,10 @@ if (!isset($_SESSION['error_panel2'])) {
             <th>rok wydania</th><th>wydawnictwo</th><th>streszczenie</th><th>ISBN</th><th>gatunek</th><th>Zaznacz</th>
             </tr>";
             for ($i = 0; $i < count($tabela_ksiazek[0]); $i++) {
-                echo "<tr><td>" . $tabela_ksiazek[0][$i] . "</td><td>" . $tabela_ksiazek[1][$i] . "</td><td>" . $tabela_ksiazek[2][$i] . "</td><td>" . $tabela_ksiazek[3][$i] . "</td><td>" . $tabela_ksiazek[4][$i] . "
-                <td>" . $tabela_ksiazek[5][$i] . "</td><td>" . $tabela_ksiazek[6][$i] . "</td><td>" . $tabela_ksiazek[7][$i] . "</td><td>" . $tabela_ksiazek[8][$i] . "</td><td>" . $tabela_ksiazek[9][$i] . "</td>
+                $termin = isset($tabela_ksiazek[4][$i]) ? date("Y-m-d", strtotime($tabela_ksiazek[4][$i])) : '';
+                $data_wyd = isset($tabela_ksiazek[5][$i]) ? date("Y-m-d", strtotime($tabela_ksiazek[5][$i])) : '';
+                echo "<tr><td>" . $tabela_ksiazek[0][$i] . "</td><td>" . $tabela_ksiazek[1][$i] . "</td><td>" . $tabela_ksiazek[2][$i] . "</td><td>" . $tabela_ksiazek[3][$i] . "</td><td>" . $termin . "
+                <td>" . $data_wyd . "</td><td>" . $tabela_ksiazek[6][$i] . "</td><td>" . $tabela_ksiazek[7][$i] . "</td><td>" . $tabela_ksiazek[8][$i] . "</td><td>" . $tabela_ksiazek[9][$i] . "</td>
                 </td><td>
                 <div class='checkbox'>
                 <input type='checkbox' class='form' name='tab_post[]' value='" . $tabela_ksiazek[0][$i] . "'>

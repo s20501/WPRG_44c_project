@@ -38,14 +38,15 @@ if (!isset($_SESSION['dostepna'])) {
         <tr>
           <th>Tytul</th>
           <th>Autor</th>
+          <th>Gatunek</th>
           <th>Zarezerwuj</th>
         </tr>
         <?php
-        $polka = new Biblioteka;
+        $polka = new Biblioteka();
         $_SESSION['polka'] = $polka;
         //Wypisuje wszystkie wolne ksiazki   
         for ($i = 0; $i < count($polka->ksiazki); $i++) {
-          echo "<tr><td>" . $polka->ksiazki[$i] . "</td><td>" . $polka->autorzy[$i] . "</td><td>
+          echo "<tr><td>" . $polka->ksiazki[$i] . "</td><td>" . $polka->autorzy[$i] . "</td><td>" . $polka->gatunki[$i] . "</td><td>
         <div class='checkbox'>
         <input type='checkbox' class='form' name='tab_post[]' value='" . $polka->ksiazki[$i] . "'>
       </div>

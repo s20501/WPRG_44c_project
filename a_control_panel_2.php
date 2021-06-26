@@ -47,7 +47,7 @@ if (!isset($_SESSION['error_panel2'])) {
                 <div class='checkbox'>
                 <input type='checkbox' class='form' name='tab_post[]' value='" . $tabela_ksiazek[0][$i] . "'>
               </div>
-                </td></tr>";
+                </td><td class='text-center'><button class='btn btn-secondary' type='submit' name='id' value='" . $tabela_ksiazek[0][$i] . "'>Edytuj</button></td></tr>";
             }
 
             echo "</table>";
@@ -60,7 +60,7 @@ if (!isset($_SESSION['error_panel2'])) {
 
                 <input class="btn btn-default" type="submit" name="przycisk" value="Przedłóż termin" />
 
-                <input class="btn btn-default" type="submit" name="przycisk" value="Dodaj książke" />
+                <input class="btn btn-default" type="submit" name="przycisk" value="Dodaj książkę" />
 
         </form>
     </div>

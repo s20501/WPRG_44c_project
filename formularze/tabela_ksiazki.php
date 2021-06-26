@@ -26,9 +26,12 @@ else if ($_POST["przycisk"] == "Przedłóż termin") {
         }
     }
     header('Location: ../a_control_panel_2.php');
-} else if ($_POST["przycisk"] == "Dodaj książke") {
+} else if ($_POST["przycisk"] == "Dodaj książkę") {
 
     header('Location: ../a_add_book.php');
+} else if (isset($_POST['id'])) {
+    $_SESSION['id'] = $_POST['id'];
+    header('Location: ../a_edycja_book.php');
 } else {
     echo "Cos poszlo nie tak";
 }

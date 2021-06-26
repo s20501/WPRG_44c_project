@@ -153,7 +153,7 @@ class Administrator
         return $row ?? false;
     }
 
-    public function add_user()
+    public function update_user()
     {
         $login = $_POST['login'];
         $haslo = $_POST['haslo'];
@@ -167,5 +167,29 @@ class Administrator
         } else {
             return false;
         }
+    }
+
+    public function update_book()
+    {
+        $this->polacz();
+        if ($this->polaczenie->query("UPDATE  biblioteka SET tytul='" . $_POST['tytul'] . "', autor='" . $_POST['autor']
+            . "',wydawnictwo='" . $_POST['wydawnictwo'] . "',rok_wydania='" . $_POST['rok_wydania'] . "',ISBN='" . $_POST['ISBN']
+            . "',gatunek='" . $_POST['gatunek'] . "',streszczenie='" . $_POST['streszczenie'] . "'
+            WHERE id = " . $_SESSION['id'])) {
+            $this->polaczenie->close();
+            return true;
+        } else {
+            $this->polaczenie->close();
+            return false;
+        }
+    }
+
+    public function get_book($id)
+    {
+        $this->polacz();
+        $result = $this->polaczenie->query("SELECT * FROM biblioteka WHERE id=$id");
+        $row = $result->fetch_row();
+        $this->polaczenie->close();
+        return $row ?? false;
     }
 }

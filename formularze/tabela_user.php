@@ -29,7 +29,7 @@ if ($_POST['przycisk'] == "Usuń") {
   header('Location: ../a_control_panel.php');
 } else if (isset($_POST['id'])) {
   $_SESSION['id'] = $_POST['id'];
-  header('Location: ../edycja_user.php');
+  header('Location: ../a_edycja_user.php');
 } else {
   echo "Cos poslo nie tak";
 }

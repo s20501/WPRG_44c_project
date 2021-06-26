@@ -57,7 +57,7 @@ czy_zalogowany();
         echo "<h3>Statystyki</h3><ul>";
         echo "<li>Liczba zarezerwowanych obecnie książek: " . $wyp_ksiazki . "</li>";
         echo "<li>Liczba rezerwacji po terminie: " . $po_terminie . "</li>";
-        echo "<li> Zarazerwowałeś w naszej bibliotece książke już " . $uzytkownik->ilosc . " razy";
+        echo "<li> Zarazerwowałeś w naszej bibliotece książkę już " . $uzytkownik->ilosc . " razy";
 
         ?>
 

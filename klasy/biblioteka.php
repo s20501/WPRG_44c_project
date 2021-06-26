@@ -59,7 +59,7 @@ class Biblioteka
         $this->polaczenie->query("UPDATE biblioteka SET termin=curdate() + INTERVAL 14 DAY WHERE tytul='$ksiazka' AND rezerwacja='nie'");
         $this->polaczenie->query("UPDATE biblioteka SET rezerwacja='$kto' WHERE tytul='$ksiazka' AND rezerwacja='nie'");
         //wstawiam wpis do histori
-        $this->polaczenie->query("INSERT INTO historia (akcja, data, login, tytul) VALUES ('wypożyczono', curdate(),'$kto','$ksiazka')");
+        $this->polaczenie->query("INSERT INTO historia (akcja, data, login, tytul) VALUES ('rezerwacja', curdate(),'$kto','$ksiazka')");
         $this->polaczenie->close();
     }
 
@@ -70,7 +70,7 @@ class Biblioteka
         $this->polaczenie->query("UPDATE biblioteka SET termin=NULL WHERE tytul='$ksiazka' AND rezerwacja='$kto'");
         $this->polaczenie->query("UPDATE biblioteka SET rezerwacja='nie' WHERE tytul='$ksiazka' AND rezerwacja='$kto'");
         //wstawiam wpis do histori
-        $this->polaczenie->query("INSERT INTO historia (akcja, data, login, tytul) VALUES ('oddano', curdate(),'$kto','$ksiazka')");
+        $this->polaczenie->query("INSERT INTO historia (akcja, data, login, tytul) VALUES ('rezerwacja usunięta', curdate(),'$kto','$ksiazka')");
         $this->polaczenie->close();
     }
 }

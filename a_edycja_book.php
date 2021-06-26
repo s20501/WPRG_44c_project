@@ -45,6 +45,9 @@ $book =  $admin->get_book($_SESSION['id'])
                 Gatunek </br> <input id="gatunek" type="text" name="gatunek" <?php echo "value='" . $book[9] . "'" ?> />
                 </br>
 
+                Rezerwacja </br> <input id="gatunek" type="text" name="rezerwacja" <?php echo "value='" . $book[2] . "'" ?> />
+                </br>
+
                 <div class="separator"></div>
 
                 <div class="col-12">

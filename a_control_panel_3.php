@@ -51,7 +51,7 @@ if (!isset($_SESSION['historia'])) {
             </tr>
             <?php
             $tab_historia = $_SESSION['historia'];
-            if ($tab_historia[0] != NULL) {
+            if (isset($tab_historia) && isset($tab_historia[0])) {
                 for ($i = 0; $i < count($tab_historia[0]); $i++) {
                     echo "<tr><td>" . $tab_historia[0][$i] . "</td><td>" . $tab_historia[1][$i] . "</td><td>" . $tab_historia[2][$i] . "</td></tr>";
                 }

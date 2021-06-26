@@ -133,7 +133,7 @@ class Administrator
     {
         $this->polacz();
         if ($this->polaczenie->query("INSERT INTO biblioteka (rezerwacja, tytul, autor,wydawnictwo,rok_wydania,ISBN,gatunek,streszczenie)
-        VALUES ('Nie','" . $_POST['tytul'] . "','" . $_POST['autor']
+        VALUES ('nie','" . $_POST['tytul'] . "','" . $_POST['autor']
             . "','" . $_POST['wydawnictwo'] . " ','" . $_POST['rok_wydania'] . "','" . $_POST['ISBN']
             . "','" . $_POST['gatunek'] . "','" . $_POST['streszczenie'] . "')")) {
             $this->polaczenie->close();
@@ -174,8 +174,8 @@ class Administrator
         $this->polacz();
         if ($this->polaczenie->query("UPDATE  biblioteka SET tytul='" . $_POST['tytul'] . "', autor='" . $_POST['autor']
             . "',wydawnictwo='" . $_POST['wydawnictwo'] . "',rok_wydania='" . $_POST['rok_wydania'] . "',ISBN='" . $_POST['ISBN']
-            . "',gatunek='" . $_POST['gatunek'] . "',streszczenie='" . $_POST['streszczenie'] . "'
-            WHERE id = " . $_SESSION['id'])) {
+            . "',gatunek='" . $_POST['gatunek'] . "',streszczenie='" . $_POST['streszczenie'] . "',rezerwacja='" . $_POST['rezerwacja'] . "'
+             WHERE id = " . $_SESSION['id'])) {
             $this->polaczenie->close();
             return true;
         } else {

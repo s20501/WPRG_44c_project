@@ -44,13 +44,16 @@ if (!isset($_SESSION['dostepna'])) {
         <?php
         $polka = new Biblioteka();
         $_SESSION['polka'] = $polka;
-        //Wypisuje wszystkie wolne ksiazki   
-        for ($i = 0; $i < count($polka->ksiazki); $i++) {
-          echo "<tr><td>" . $polka->ksiazki[$i] . "</td><td>" . $polka->autorzy[$i] . "</td><td>" . $polka->gatunki[$i] . "</td><td>
+        //Wypisuje wszystkie wolne ksiazki 
+        if (isset($polka->ksiazki)) {
+
+          for ($i = 0; $i < count($polka->ksiazki); $i++) {
+            echo "<tr><td>" . $polka->ksiazki[$i] . "</td><td>" . $polka->autorzy[$i] . "</td><td>" . $polka->gatunki[$i] . "</td><td>
         <div class='checkbox'>
         <input type='checkbox' class='form' name='tab_post[]' value='" . $polka->ksiazki[$i] . "'>
       </div>
         </td></tr>";
+          }
         }
         ?>
       </table>

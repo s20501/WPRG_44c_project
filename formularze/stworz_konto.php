@@ -17,8 +17,8 @@ if($rezultat->num_rows > 0)
 }
 else 
 {
-    if($polaczenie->query("INSERT INTO user (login, haslo)
-    VALUES ('$login', '$haslo')") === FALSE)
+    if($polaczenie->query("INSERT INTO user (login, haslo,ilosc_wypozyczen)
+    VALUES ('$login', '$haslo', 0)") === FALSE)
     {
         echo "NIE UDAlO SIe UTWORZYC REKORDU";
     }
@@ -29,4 +29,3 @@ else
 }
 
 $polaczenie->close();
-?>

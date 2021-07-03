@@ -42,14 +42,13 @@ if (!isset($_SESSION['dostepna2'])) {
       $_SESSION['polka'] = $polka;
       echo '<table class="table table-bordered">
    <tr><th>Tytul</th><th>Termin do odbioru</th><th>Usuń rezerwację</th><tr/>';
-      $data_czas = new DateTime();
 
       if (isset($uzytkownik->ksiazki)) {
 
         for ($i = 0; $i < count($uzytkownik->ksiazki); $i++) {
-          $koniec = DateTime::createFromFormat('Y-m-d', $uzytkownik->termin[$i]);
-          if ($data_czas <= $koniec) {
-            echo "<tr><td>" . $uzytkownik->ksiazki[$i] . "</td><td>" . $uzytkownik->termin[$i] . "</td><td>
+
+          if (strtotime(date("Y-m-d")) <= strtotime($uzytkownik->termin[$i])) {
+            echo "<tr><td>" . $uzytkownik->ksiazki[$i] . "</td><td>" .  date("Y-m-d", strtotime($uzytkownik->termin[$i])) . "</td><td>
 
        <div class='checkbox'>
        <input type='checkbox' class='form' name='tab_post[]' value='" . $uzytkownik->ksiazki[$i] . "'>

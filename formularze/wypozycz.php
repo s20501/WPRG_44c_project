@@ -21,7 +21,7 @@ if(in_array($ksiazka, $polka->ksiazki))
 if($dostepna)
 {
     $_SESSION['dostepna'] = '';
-    //wypozyczam
+    // rezerwuje
     $polka->pozycz($ksiazka,$_SESSION['zalogowany']);
     $user->ilosc_plus();
    
@@ -36,4 +36,3 @@ else
 }
 
 header('Location: ../polka.php');
-?>

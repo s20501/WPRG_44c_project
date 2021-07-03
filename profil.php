@@ -39,8 +39,7 @@ czy_zalogowany();
 
         if (isset($uzytkownik->termin)) {
             for ($i = 0; $i < count($uzytkownik->termin); $i++) {
-                $koniec = DateTime::createFromFormat('Y-m-d', $uzytkownik->termin[$i]);
-                if ($data_czas > $koniec) {
+                if (strtotime(date("Y-m-d")) > strtotime($uzytkownik->termin[$i])) {
                     $po_terminie++;
                 }
             }
